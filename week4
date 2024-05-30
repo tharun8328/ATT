@@ -1,0 +1,22 @@
+package expp4;
+
+import java.util.HashMap;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.chromeoptions;
+
+public class expp4 {
+
+	public static void main(String[] args) {
+		HashMap<String,object>prefs=new HashMap<string,object>();
+		prefs.put("profile.default-content-setting-value.notifications",2);
+		ChromeOptions options=new ChromeOptions();
+		Options.setExperimentalOption("prefs",prefs);
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Student\\Desktop\\Selenium Lab\\chromedriver.exe" );
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.axisbank.com/");
+		
+	}
+
+}
