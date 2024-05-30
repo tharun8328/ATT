@@ -1,0 +1,16 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class expp7 {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Student\\Desktop\\Selenium Lab\\chromedriver.exe" );
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.google.com/");
+		WebElement ser=driver.findElement(By.name("q"));
+		ser.Sendkeys("cmrit hyderabad");
+		ser.Sendkeys(key.ENTER);
+	}
+}
