@@ -1,0 +1,58 @@
+package week10;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class exp10 {
+
+ public static void main(String[] args) throws InterruptedException {
+ // TODO Auto-generated method stub
+ WebDriver driver=new ChromeDriver();
+ driver.manage().window().maximize();
+ driver.get("https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ddm=0&emr=1&flowEntry=ServiceLogin&flowName=GlifWebSignIn&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&ifkv=AS5LTASwONHGVWr1nJcxEXRKWLXrwtzDUlo_RfacS7SNJA6L0VI58xfBAwnnzgoGIfgzFHPrZqu4zg&osid=1&passive=1209600&service=mail");
+ Thread.sleep(2000);
+ WebElement createbtn = driver.findElement(By.xpath("//span[normalize-space()='Create account']"));
+ createbtn.click();
+ Thread.sleep(2000);
+ WebElement formyselfBtn = driver.findElement(By.xpath("//span[normalize-space()='For my personal use']"));
+ formyselfBtn.click();
+ Thread.sleep(2000);
+ driver.findElement(By.name("firstName")).sendKeys("Tharun");
+ Thread.sleep(2000);
+ driver.findElement(By.name("lastName")).sendKeys("Kumar r");
+ Thread.sleep(2000);
+ WebElement nextBtnFL = driver.findElement(By.xpath("//span[normalize-space()='Next']"));
+ nextBtnFL.click();
+ Thread.sleep(3000);
+ Select month = new Select(driver.findElement(By.xpath("(//select[@id='month'])[1]")));
+ month.selectByValue("6");
+ Thread.sleep(2000);
+ driver.findElement(By.name("day")).sendKeys("29");
+ Thread.sleep(2000);
+ driver.findElement(By.name("year")).sendKeys("2004");
+ Thread.sleep(2000);
+ Select gender = new Select(driver.findElement(By.xpath("(//select[@id='gender'])[1]")));
+ gender.selectByValue("1");
+ Thread.sleep(2000);
+ WebElement nextBtngender = driver.findElement(By.xpath("//span[normalize-space()='Next']"));
+ nextBtngender.click();
+ Thread.sleep(2000);
+ WebElement gmailSelect = driver.findElement(By.id("selectionc4"));
+ gmailSelect.click();
+ Thread.sleep(2000);
+ driver.findElement(By.name("Username")).sendKeys("tharunkumar23r2");
+ Thread.sleep(2000);
+ WebElement nextBtnGmail = driver.findElement(By.xpath("//span[normalize-space()='Next']"));
+ nextBtnGmail.click();
+ Thread.sleep(2000);
+ driver.findElement(By.name("Passwd")).sendKeys("Qwerty@123");
+ Thread.sleep(2000);
+ driver.findElement(By.name("PasswdAgain")).sendKeys("Qwerty@123");
+ Thread.sleep(2000);
+ WebElement nextPwd = driver.findElement(By.xpath("//span[normalize-space()='Next']"));
+ nextPwd.click();
+}
+}
