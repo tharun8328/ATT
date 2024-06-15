@@ -1,0 +1,45 @@
+package week11;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class week11 {
+	public static void main(String[] args) throws InterruptedException{
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.google.com");
+		Thread.sleep(2000);
+		WebElement searchBar = driver.findElement(By.name("q"));
+		searchBar.sendKeys("myntra");
+		searchBar.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		WebElement myntra = driver.findElement(By.xpath("(//span[normalize-space()='Shop Home & Beauty Products | Shop Trends | 50-90% Off'])[0]"));
+		myntra.click();
+		Thread.sleep(2000);
+		WebElement profile = driver.findElement(By.xpath("(//span[normalize-space()='Profile']"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(profile).build().perform();
+		Thread.sleep(2000);
+		WebElement login = driver.findElement(By.xpath("(//a[normalize-space()='login / Signup'])"));
+		login.click();
+		Thread.sleep(2000);
+		WebElement loginInfo = driver.findElement(By.className("form-control mobileNumberInput"));
+		loginInfo.sendKeys("1234567892");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//div[normalize-space()='CONTINUE'])")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.name("otp0")).sendKeys("3");
+		Thread.sleep(2000);
+		driver.findElement(By.name("otp1")).sendKeys("3");
+		Thread.sleep(2000);
+		driver.findElement(By.name("otp2")).sendKeys("3");
+		Thread.sleep(2000);
+		driver.findElement(By.name("otp3")).sendKeys("3");
+		
+		
+	}
+}
